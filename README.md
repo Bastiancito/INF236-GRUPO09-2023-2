@@ -1,12 +1,14 @@
 # INF236-GRUPO09-2023-2
 
 
+* Bastian Camus - 202173013-3
+* Matias Fernandez - 202173108-3
+* Joaquin Navarro - 202173125-3
+* Benjamin Vilches - 202173101-6
 
-## Getting started
+## Wiki
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+> Puede acceder a la Wiki mediante el siguiente [link](https://gitlab.com/inf236-grupo09-2023-2/INF236-GRUPO09-2023-2)!
 
 ## Add your files
 
