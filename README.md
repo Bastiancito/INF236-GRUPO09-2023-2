@@ -5,22 +5,17 @@
 * Matias Fernandez - 202173108-3
 * Joaquin Navarro - 202173125-3
 * Benjamin Vilches - 202173101-6
+* Tutor/a: Antonia Valenzuela
 
 ## Wiki
 
 > Puede acceder a la Wiki mediante el siguiente [link](https://gitlab.com/inf236-grupo09-2023-2/INF236-GRUPO09-2023-2)!
 
-## Add your files
+## Videos
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://gitlab.com/inf236-grupo09-2023-2/INF236-GRUPO09-2023-2.git
-git branch -M main
-git push -uf origin main
-```
+* [Video presentación cliente](https://www.youtube.com/watch?v=LHmE2B2Bumw&feature=youtu.be)
+* [Video presentación avance 1](https://youtu.be/_pTW-VZjeHk)}
+* [Video presentación final](pendiente)
 
 ## Integrate with your tools
 
