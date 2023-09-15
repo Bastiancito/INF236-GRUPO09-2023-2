@@ -18,4 +18,6 @@ Este es el repositorio del grupo 09, cuyos integrantes son:
 * [Video presentación avance 1](https://youtu.be/_pTW-VZjeHk)
 * [Video presentación final pendiente]
 
-## Aspectos tecnicos relevantes
+## Comentarios extra
+
+A lo largo de esta documentacion estaremos actualizando todo lo relacionado al proyecto de analisis y diseño de software, para asi ir reflejando directamente el avance que vamos teniendo a lo largo del semestre.
