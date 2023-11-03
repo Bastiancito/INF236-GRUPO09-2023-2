@@ -16,6 +16,7 @@ Este es el repositorio del grupo 09, cuyos integrantes son:
 
 * [Video presentación cliente](https://www.youtube.com/watch?v=LHmE2B2Bumw&feature=youtu.be)
 * [Video presentación avance 1](https://youtu.be/_pTW-VZjeHk)
+* [Video presentación avance 2 (Correspondiente al Hito 4)](https://youtu.be/AT6ZTAb9jfU)
 * [Video presentación final pendiente]
 ## Tecnología correspondiente al Frontend
 
