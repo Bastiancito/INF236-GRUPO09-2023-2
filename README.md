@@ -17,6 +17,9 @@ Este es el repositorio del grupo 09, cuyos integrantes son:
 * [Video presentación cliente](https://www.youtube.com/watch?v=LHmE2B2Bumw&feature=youtu.be)
 * [Video presentación avance 1](https://youtu.be/_pTW-VZjeHk)
 * [Video presentación final pendiente]
+## Tecnología correspondiente al Frontend
+
+La tecnología seleccionada para el frontend, usaremos HTML, CSS y un framework de CSS llamado "TailWind Css"
 
 ## Comentarios extra
 
