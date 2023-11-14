@@ -20,7 +20,7 @@ Este es el repositorio del grupo 09, cuyos integrantes son:
 * [Video presentación final pendiente]
 ## Tecnología correspondiente al Frontend
 
-La tecnología seleccionada para el frontend, usaremos HTML, CSS y un framework de CSS llamado "TailWind Css"
+La tecnología seleccionada para el frontend, usaremos HTML, CSS y un framework de CSS llamado "TailWind Css", durante el desarrollo de la capa de presentación, se nos vio en la necesidad para la comodidad de la creación del Frontend, el uso de JavaScript.
 
 ## Comentarios extra
 
