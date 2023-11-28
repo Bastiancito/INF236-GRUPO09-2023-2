@@ -17,7 +17,7 @@ Este es el repositorio del grupo 09, cuyos integrantes son:
 * [Video presentación cliente](https://www.youtube.com/watch?v=LHmE2B2Bumw&feature=youtu.be)
 * [Video presentación avance 1](https://youtu.be/_pTW-VZjeHk)
 * [Video presentación avance 2 (Correspondiente al Hito 4)](https://youtu.be/AT6ZTAb9jfU)
-* [Video presentación final pendiente]
+* [Video presentación final](https://youtu.be/R9vg3JIlj3g)
 ## Tecnología correspondiente al Frontend
 
 La tecnología seleccionada para el frontend, usaremos HTML, CSS y un framework de CSS llamado "TailWind Css", durante el desarrollo de la capa de presentación, se nos vio en la necesidad para la comodidad de la creación del Frontend, el uso de JavaScript.
@@ -28,5 +28,5 @@ A lo largo de esta documentacion estaremos actualizando todo lo relacionado al p
 
 ## Pasos para levantar el proyecto
 
-En el brach master, se encuentre la carpeta del proyecto a descargar, Además de los pasos indicados en el brach de "proyecto base", cuando estén levantadas las API, hay que darle click donde salen los puertos y se van a redigir a las vistas de lo realizado en el proyecto.
+En el brach master, se encuentra la carpeta del proyecto a descargar, Además de los pasos indicados en el brach de "proyecto base", cuando estén levantadas las API, hay que darle click donde salen los puertos y se van a redigir a las vistas de lo realizado en el proyecto. Luego de inicializar las bases de datos, las cuales son BD09_PRODUCTOS y BD09_CLIENTES. Se deberan crear las tablas con los siguientes request del Postman. Estas se encuentran señalizadas como crear tablas nombre de lo que queremos. Con las tablas ya creadas se puede hacer correctamente el uso de lo implementado en las vistas. [Link Postman](https://app.getpostman.com/join-team?invite_code=7a1375372352fc3d9066e35cca7a7463&target_code=4038fa8e38674c89a573811d234b26d1)
 
