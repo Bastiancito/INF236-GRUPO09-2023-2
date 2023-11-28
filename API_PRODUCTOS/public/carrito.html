@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Configuración de la página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEYSA</title>
+
+    <!-- Enlace a Tailwind CSS y fuente de Google -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos personalizados en línea -->
+    <style>
+        /* Paleta de colores personalizada */
+        :root {
+            --color1: #D4C2AD; /* Color principal */
+            --color2: #D7A184; /* Color secundario */
+            --color3: #EFDFCC; /* Color de fondo */
+            --color4: #BA8E7A; /* Otro color */
+            --color5: #66796B; /* Otro color */
+        }
+
+        /* Estilo general del texto en la página */
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        a,
+        label,
+        input,
+        button {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color4) !important;
+        }
+
+        /* Fondo con degradado */
+        .gradient-background {
+            background: linear-gradient(180deg, var(--color3) 0%, var(--color3) 100%);
+        }
+
+        /* Estilo de la tarjeta (producto) */
+        .card {
+            background-color: var(--color3) !important;
+            border: 1px solid var(--color3);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        /* Efecto de escala al pasar el ratón por la tarjeta */
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Estilo del encabezado */
+        header {
+            background-color: var(--color3);
+            padding-top: 0.5rem; /* Ajuste para reducir el espacio en el encabezado */
+            padding-bottom: 0.5rem; /* Ajuste para reducir el espacio en el encabezado */
+        }
+
+        /* Tamaño del texto del logo */
+        .logo-text {
+            font-size: 1.5rem;
+        }
+
+        /* Estilo del formulario de inicio de sesión */
+        form.login-form {
+            background-color: var(--color3);
+            border: 1px solid var(--color3);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        /* Estilo del botón */
+        button {
+            background-color: var(--color3);
+            color: #FFF0D6;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Cambio de color al pasar el ratón por el botón */
+        button:hover {
+            background-color: var(--color2);
+        }
+
+        /* Estilos adicionales para el efecto de escala */
+        .text-sm a {
+            transition: transform 0.3s ease-in-out; /* Transición suave de escala */
+        }
+
+        .text-sm a:hover {
+            transform: scale(1.03); /* Efecto de escala al pasar el ratón por encima */
+        }
+
+        /* Estilo para el resumen del carrito */
+        #resumen-carrito {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--color3);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--color4);
+        }
+
+        /* Estilo para el botón del resumen del carrito */
+        #ver-carrito {
+            background-color: var(--color2);
+            color: #FFF0D6;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Cambio de color al pasar el ratón por el botón del resumen del carrito */
+        #ver-carrito:hover {
+            background-color: var(--color1);
+        }
+
+        /* Estilo para el botón de búsqueda */
+        #buscar-btn {
+            background-color: var(--color3);
+            color: #FFF0D6;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Cambio de color al pasar el ratón por el botón de búsqueda */
+        #buscar-btn:hover {
+            background-color: var(--color2);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Encabezado -->
+    <header class="gradient-background">
+        <!-- Contenedor del encabezado -->
+        <div class="container mx-auto px-6 py-2 flex items-center justify-between">
+
+            <!-- Sección del logo -->
+            <div class="flex items-center space-x-1">
+                <img src="logo.png" alt="Logo VEYSA" class="h-28 mr-1">
+                <a href="/" class="text-white font-bold text-xs logo-text">VEYSA MANUALIDADES</a>
+            </div>
+
+            <!-- Enlaces de navegación -->
+            <div class="text-center space-x-4 text-sm">
+                <a href="/acercade" class="text-white font-bold">ACERCA</a>
+                <a href="/carrito" class="text-white font-bold">TIENDA</a>
+                <a href="/contacto" class="text-white font-bold"> CONTACTO</a>
+            </div>
+
+
+
+        </div>
+    </header>
+
+         <section class="container mx-auto my-8 flex flex-wrap justify-center" id="products-container"> 
+    
+            <div id="products-container"></div>
+    
+            <script>
+                fetch('/productos')
+                .then(response => response.json())
+                .then(products => {
+                    console.log(products);
+                    mostrarProductos(products);
+                })
+                .catch(error => console.error('Error:', error));
+
+                function mostrarProductos(productos) {
+                    const productsContainer = document.getElementById('products-container');
+                    productsContainer.innerHTML = '';
+
+                   
+                    productos.forEach(product => {
+                        const productElement = document.createElement('div');
+                        productElement.classList.add('card', 'border', 'border-gray-300', 'rounded', 'overflow-hidden', 'shadow-lg', 'm-4', 'w-64');
+
+                      
+                        productElement.innerHTML = `
+                            <h3 class="text-lg font-bold mb-2">${product.nombre_producto}</h3>
+                            <p class="text-gray-600">${product.descripcion}</p>
+                            <p class="text-lg font-bold text-blue-500">$${product.precio.toFixed(2)}</p>
+                            <p class="text-gray-500">Etiquetas: ${product.etiqueta}</p>
+                            <button onclick="agregarAlCarrito('${product.nombre_producto}', ${product.precio})">Agregar al carrito</button>
+                            <button class="eliminar-producto" onclick="eliminarDelCarrito('${product.nombre_producto}', ${product.precio})">Eliminar</button>
+                        `;
+                        productsContainer.appendChild(productElement);
+                    });
+                }
+            let totalCarrito = 0;
+            
+            let productosEnCarrito = [];
+
+            // Función para agregar un producto al carrito
+            function agregarAlCarrito(nombre, precio) {
+                
+                productosEnCarrito.push({ nombre, precio });
+                totalCarrito += precio;
+                const totalCarritoElement = document.getElementById('total-carrito');
+                totalCarritoElement.textContent = `$${totalCarrito.toFixed(2)}`;
+            }
+
+            // Función para eliminar un producto del carrito
+            function eliminarDelCarrito(nombre, precio) {
+            
+                const index = productosEnCarrito.findIndex(producto => producto.nombre === nombre && producto.precio === precio);
+                if (index !== -1) {
+                    totalCarrito -= productosEnCarrito[index].precio;
+                    const totalCarritoElement = document.getElementById('total-carrito');
+                    totalCarritoElement.textContent = `$${totalCarrito.toFixed(2)}`;
+                    productosEnCarrito.splice(index, 1);
+                }
+            }  
+            </script>    
+        </section>
+        <div id="carrito" class="container mx-auto my-8">
+            <ul id="lista-carrito"></ul>
+        </div>
+
+        <!-- Resumen del Carrito -->
+        <div id="resumen-carrito">
+            <p>Total del Carrito: <span id="total-carrito">$0.00</span></p>
+            <button id="ver-carrito" onclick="mostrarCarrito()">Ver Carrito</button>
+        </div>
+    
+    </body>
+</html>

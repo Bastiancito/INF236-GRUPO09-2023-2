@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Configuración de la página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEYSA - Gestión de Insumos</title>
+
+    <!-- Enlace a Tailwind CSS y fuente de Google -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos personalizados en línea -->
+    <style>
+        /* Paleta de colores personalizada */
+        :root {
+            --color1: #D4C2AD; /* Color principal */
+            --color2: #D7A184; /* Color secundario */
+            --color3: #EFDFCC; /* Color de fondo */
+            --color4: #BA8E7A; /* Otro color */
+            --color5: #66796B; /* Otro color */
+        }
+
+        /* Estilo general del texto en la página */
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        a,
+        label,
+        input,
+        button {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color4) !important;
+        }
+
+        /* Fondo con degradado */
+        .gradient-background {
+            background: linear-gradient(180deg, var(--color3) 0%, var(--color3) 100%);
+        }
+
+        /* Estilo del encabezado */
+        header {
+            background-color: var(--color3);
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Tamaño del texto del logo */
+        .logo-text {
+            font-size: 1.5rem;
+        }
+
+        /* Estilo de la barra de navegación */
+        nav {
+            background-color: var(--color2);
+            padding: 0.5rem;
+        }
+
+        /* Estilo del formulario de gestión de insumos */
+        form {
+            background-color: var(--color3);
+            border: 1px solid var(--color3);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+
+        /* Estilo del botón */
+        button {
+            background-color: var(--color3);
+            color: #FFF0D6;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Cambio de color al pasar el ratón por el botón */
+        button:hover {
+            background-color: var(--color2);
+        }
+
+        /* Estilo de la tabla de insumos */
+        table {
+            width: 100%;
+            margin-top: 2rem;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid var(--color4);
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--color2);
+            color: #FFF0D6;
+        }
+
+        /* Estilo para el botón de eliminar */
+        .eliminar-btn {
+            background-color: #FF0000;
+            color: #FFF0D6;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Cambio de color al pasar el ratón por el botón de eliminar */
+        .eliminar-btn:hover {
+            background-color: #C70000;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Encabezado -->
+    <header class="gradient-background">
+        <div class="container mx-auto px-6 py-2 flex items-center justify-between">
+            <!-- Sección del logo -->
+            <div class="flex items-center space-x-1">
+                <a href="/" class="text-white font-bold text-xs logo-text">VEYSA MANUALIDADES</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de Navegación -->
+    <nav class="text-center">
+        <a href="/dashboard" class="text-white font-bold">Dashboard</a>
+        <a href="/insumos" class="text-white font-bold">Insumos</a>
+    </nav>
+
+    <!-- Formulario de Gestión de Insumos -->
+    <form action="/insumos" method="post">
+        <label for="nombre_insumo" class="block">Nombre del Insumo:</label>
+        <input type="text" id="nombre_insumo" name="nombre_insumo" class="w-full border border-gray-300 rounded px-1 py-0.5 mb-4">
+     
+        <label for="stock" class="block">Cantidad:</label>
+        <input type="number" id="stock" name="stock" class="w-full border border-gray-300 rounded px-1 py-0.5 mb-4">
+     
+        <label for="precio" class="block">Precio por Unidad:</label>
+        <input type="number" id="precio" name="precio" class="w-full border border-gray-300 rounded px-1 py-0.5 mb-4">
+     
+        <button type="submit">Agregar Insumo</button>
+     </form>
+     
+    <!-- Tabla de Insumos -->
+    <table id="insumos">
+        <tr>
+            <th>Nombre del insumos</th>
+            <th>Cantidad</th>
+            <th>Precio por Unidad</th>
+            <th>Total</th>
+            <th>Acciones</th> 
+        </tr>
+    </table>
+    
+    <script>
+        // Función para eliminar un insumo
+        function eliminarInsumo(id) {
+            fetch(`/insumos/${id}`, {
+                method: 'DELETE',
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                actualizarTabla();
+            })
+            .catch(error => console.error('Error al eliminar el insumo:', error));
+        }
+        // Función para actualizar la tabla después de eliminar un insumos
+        function actualizarTabla() {
+            const table = document.getElementById('insumos');
+            table.innerHTML = '<tr><th>Nombre del Insumo</th><th>Cantidad</th><th>Precio por Unidad</th><th>Total</th><th>Acciones</th></tr>';
+            fetch('/insumos')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(insumos => {
+                        const row = table.insertRow();
+                        row.insertCell().innerText = insumos.nombre_insumo;
+                        row.insertCell().innerText = insumos.stock;
+                        row.insertCell().innerText = insumos.precio;
+                        row.insertCell().innerText = insumos.stock * insumos.precio;
+
+                        // Crea un botón de eliminar y lo añade a la última celda de la fila
+                        const eliminarBtn = document.createElement('button');
+                        eliminarBtn.innerText = 'Eliminar';
+                        eliminarBtn.className = 'eliminar-btn';
+                        eliminarBtn.onclick = function () {
+                            eliminarInsumo(insumos.id_insumo);
+                        };
+                        const celdaAcciones = row.insertCell();
+                        celdaAcciones.appendChild(eliminarBtn);
+                    });
+                });
+        }
+        actualizarTabla();
+    </script>
+
+</body>
+
+</html>

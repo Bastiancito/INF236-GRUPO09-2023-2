@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Configuración de la página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de VEYSA Manualidades</title>
+
+    <!-- Enlace a Tailwind CSS y fuente de Google -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos personalizados en línea -->
+    <style>
+        /* Paleta de colores personalizada */
+        :root {
+            --color1: #D4C2AD; /* Color principal */
+            --color2: #D7A184; /* Color secundario */
+            --color3: #EFDFCC; /* Color de fondo */
+            --color4: #BA8E7A; /* Otro color */
+            --color5: #66796B; /* Otro color */
+        }
+
+        /* Estilo general del texto en la página */
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        a,
+        label,
+        input,
+        button {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color4) !important;
+        }
+
+        /* Fondo con degradado */
+        .gradient-background {
+            background: linear-gradient(180deg, var(--color3) 0%, var(--color3) 100%);
+        }
+
+        /* Estilo del encabezado */
+        header {
+            background-color: var(--color3);
+            padding-top: 0.5rem; /* Ajuste para reducir el espacio en el encabezado */
+            padding-bottom: 0.5rem; /* Ajuste para reducir el espacio en el encabezado */
+        }
+
+        /* Tamaño del texto del logo */
+        .logo-text {
+            font-size: 1.5rem;
+        }
+
+        /* Estilos adicionales para el efecto de escala */
+        .text-sm a {
+            transition: transform 0.3s ease-in-out; /* Transición suave de escala */
+        }
+
+        .text-sm a:hover {
+            transform: scale(1.03); /* Efecto de escala al pasar el ratón por encima */
+        }
+
+        /* Estilo para el resumen del carrito */
+        #resumen-carrito {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--color3);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--color4);
+        }
+
+        /* Estilo para el botón del resumen del carrito */
+        #ver-carrito {
+            background-color: var(--color2);
+            color: #FFF0D6;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Cambio de color al pasar el ratón por el botón del resumen del carrito */
+        #ver-carrito:hover {
+            background-color: var(--color1);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Encabezado -->
+    <header class="gradient-background">
+        <!-- Contenedor del encabezado -->
+        <div class="container mx-auto px-6 py-2 flex items-center justify-between">
+
+            <!-- Sección del logo -->
+            <div class="flex items-center space-x-1">
+                <img src="logo.png" alt="Logo VEYSA" class="h-28 mr-1">
+                <a href="/" class="text-white font-bold text-xs logo-text">VEYSA MANUALIDADES</a>
+            </div>
+
+            <!-- Enlaces de navegación -->
+            <div class="text-center space-x-4 text-sm">
+                <a href="/acercade" class="text-white font-bold">ACERCA</a>
+                <a href="/carrito" class="text-white font-bold">TIENDA</a>
+                <a href="/contacto" class="text-white font-bold"> CONTACTO</a>
+            </div>
+
+        </div>
+    </header>
+
+    <section class="container mx-auto my-8 p-8 bg-white rounded shadow">
+        <h1 class="text-3xl font-bold mb-4">Acerca de VEYSA Manualidades</h1>
+        <p class="text-gray-700">
+            ¡Bienvenido a VEYSA Manualidades! Somos una tienda dedicada a inspirar tu creatividad
+            y llevar tus ideas a la realidad. Nos enorgullece ser tu
+            destino favorito para todo lo relacionado con manualidades y arte.
+        </p>
+        <p class="text-gray-700">
+            Nuestra historia comenzó con la pasión por las manualidades y el deseo de compartir
+            esa pasión con la comunidad. Lo que comenzó como una pequeña tienda local ha crecido
+            hasta convertirse en un lugar donde los amantes de las manualidades pueden encontrar
+            todo lo que necesitan.
+        </p>
+        <p class="text-gray-700">
+            En VEYSA, nos esforzamos por ofrecer productos de alta calidad que inspiren tu
+            creatividad y te ayuden a expresar tu individualidad. Ya sea que seas un principiante
+            entusiasta o un artista experimentado, encontrarás todo lo que necesitas en nuestra
+            tienda.
+        </p>
+        <p class="text-gray-700">
+            Nuestro equipo está formado por apasionados de las manualidades que comparten tu amor
+            por la creatividad. Estamos aquí para brindarte los mejores productos del mercado.
+        </p>
+        <p class="text-gray-700">
+            ¡Gracias por ser parte de la familia VEYSA Manualidades! Esperamos inspirarte,
+            motivarte y ser tu destino creativo de confianza.
+        </p>
+    </section>
+
+
+</body>
+
+</html>

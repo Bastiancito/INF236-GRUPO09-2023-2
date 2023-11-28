@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Configuración de la página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - VEYSA</title>
+
+    <!-- Enlace a Tailwind CSS y fuente de Google -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos personalizados en línea -->
+    <style>
+        /* Paleta de colores personalizada */
+        :root {
+            --color1: #D4C2AD; /* Color principal */
+            --color2: #D7A184; /* Color secundario */
+            --color3: #EFDFCC; /* Color de fondo */
+            --color4: #BA8E7A; /* Otro color */
+            --color5: #66796B; /* Otro color */
+        }
+
+        /* Estilo general del texto en la página */
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        a,
+        label,
+        input,
+        button {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color4) !important;
+        }
+
+        /* Fondo con degradado */
+        .gradient-background {
+            background: linear-gradient(180deg, var(--color3) 0%, var(--color3) 100%);
+        }
+
+        /* Estilo del formulario de registro */
+        form {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: var(--color3);
+            border: 1px solid var(--color3);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        /* Estilo del botón */
+        button {
+            background-color: var(--color3);
+            color: #FFF0D6;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Cambio de color al pasar el ratón por el botón */
+        button:hover {
+            background-color: var(--color2);
+        }
+
+        /* Estilo para mensajes de éxito o error */
+        #mensaje {
+            margin-top: 0.5rem;
+            font-weight: bold;
+        }
+
+        .mensaje-exito {
+            color: #008000;
+        }
+
+        .mensaje-error {
+            color: #FF0000;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Formulario de Registro -->
+    <form id="registroForm" class="gradient-background">
+        <h1 class="text-2xl font-bold mb-4">Registro en VEYSA</h1>
+
+        <div>
+            <label for="nombreRegistro" class="block">Nombre:</label>
+            <input type="text" id="nombreRegistro" name="nombreRegistro" class="w-full border border-gray-300 rounded px-2 py-1">
+        </div>
+
+        <div class="mt-4">
+            <label for="emailRegistro" class="block">Email:</label>
+            <input type="text" id="emailRegistro" name="emailRegistro" class="w-full border border-gray-300 rounded px-2 py-1">
+        </div>
+
+        <div class="mt-4">
+            <label for="passwordRegistro" class="block">Contraseña:</label>
+            <div class="flex">
+                <input type="password" id="passwordRegistro" name="passwordRegistro" class="w-full border border-gray-300 rounded px-2 py-1">
+                <button type="button" onclick="togglePasswordVisibility()">Mostrar</button>
+            </div>
+            <div class="error-message" id="passwordError"></div>
+        </div>
+
+        <button type="button" onclick="registrarUsuario()">Registrarse</button>
+
+        <div id="mensaje"></div>
+    </form>
+
+    <!-- Scripts -->
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById('passwordRegistro');
+            var passwordButton = document.querySelector('button');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordButton.textContent = 'Ocultar';
+            } else {
+                passwordInput.type = 'password';
+                passwordButton.textContent = 'Mostrar';
+            }
+        }
+
+        function registrarUsuario() {
+            // Obtener datos del formulario
+            var nombre = document.getElementById('nombreRegistro').value;
+            var email = document.getElementById('emailRegistro').value;
+            var password = document.getElementById('passwordRegistro').value;
+
+
+            // Ejemplo con fetch
+            fetch('/clientes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    nombre_cliente: nombre,
+                    email: email,
+                    password: password,
+                }),
+            })
+            .then(response => {
+    if (!response.ok) {
+        throw new Error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
+    }
+    return response.json();
+})
+.then(data => {
+    var mensajeElemento = document.getElementById('mensaje');
+    if (data.mensaje) {
+        mensajeElemento.textContent = data.mensaje;
+        mensajeElemento.className = 'mensaje-exito';
+        
+        document.getElementById('nombreRegistro').value = '';
+        document.getElementById('emailRegistro').value = '';
+        document.getElementById('passwordRegistro').value = '';
+    } else {
+        mensajeElemento.textContent = 'Error en el servidor';
+        mensajeElemento.className = 'mensaje-error';
+    }
+})
+.catch(error => {
+    console.error('Error:', error);
+    var mensajeElemento = document.getElementById('mensaje');
+    mensajeElemento.textContent = error.message;
+    mensajeElemento.className = 'mensaje-error';
+});
+        }
+    </script>
+</body>
+
+</html>
