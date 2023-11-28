@@ -1,61 +1,32 @@
-# INF236-2023-1-Proyecto Base
+# Grupo 09
 
-## Requerimientos
+Este es el repositorio del grupo 09, cuyos integrantes son:
 
-Para utilizar el proyecto base debe tener instalado [Node.js](https://nodejs.org/en), [Docker](https://www.docker.com/) y se recomienda [Postman](https://www.postman.com/) para poder probar los endpoints de la api.
+* Bastian Camus - 202173013-3
+* Matias Fernandez - 202173108-3
+* Joaquin Navarro - 202173125-3
+* Benjamin Vilches - 202173101-6
+* Tutor/a: Antonia Valenzuela
 
-## Puntos a Considerar
-La solución a desarrollar debe seguir los siguientes lineamientos (imagen referecial al final):
-* Se debe considerar dos API's:
-    * API_PRODUCTOS: Con todo lo referido a los productos.
-    * API_{DEFINIR}: con todo lo referido al microservicio que haya definido el grupo.
-* Cada API contará con una base de datos mysql.
-* Las API's deben ser construidas utilizando [Node.js](https://nodejs.org/en)
-![Modelo](img/diagrama.png)
-## Levantando el proyecto
-### Bases de Datos
-Iniciaremos levantando la imagen de mysql en docker. En una terminal escriba el siguiente comando:
-```
-docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=password -d mysql
-```
-Deben esperar a que se inicie en su totalidad el contenedor. Pueden verificar esto en la interfaz de Docker. Si utilizan el comando que sigue sin esperar les mostrará un error.
-![Docker](img/console_docker.png)
+## Wiki
 
-Una vez creada la imagen, crearemos las bases de datos. Para esto debemos entrar en el contendor, con el siguiente comando:
-```
-docker exec -it mysql mysql -uroot -p
-```
-Deben ingresar la clave que en este caso es **password**
+> Puede acceder a la Wiki mediante el siguiente [link](https://gitlab.com/inf236-grupo09-2023-2/INF236-GRUPO09-2023-2/-/wikis/home)!
 
-Una vez dentro del contenedor podemos crear las bases de datos. 
-```
-create database Nombre;
-```
-Donde Nombre, deberá ser sustituido por: BDXX_PRODUCTOS, BDXX_{DEFINIR}, donde XX corresponde al número de su grupo.
+## Videos
 
-### API's
-Deben crear un archivo con el nombre .env en la carpeta API_PRODUCTOS. Este debe contener lo siguiente:
-```js
-PORT_API = 8080
-DB_USER = "root"
-DB_PASSWORD = "password"
-DB_NAME = "Nombre de la base de datos"
-DB_PORT = 3306
-DB_HOST = "host.docker.internal"
-```
-***Nota: deben cambiar DB_NAME por el nombre que le pusieron a la base de datos (BDXX_PRODUCTOS)***
+* [Video presentación cliente](https://www.youtube.com/watch?v=LHmE2B2Bumw&feature=youtu.be)
+* [Video presentación avance 1](https://youtu.be/_pTW-VZjeHk)
+* [Video presentación avance 2 (Correspondiente al Hito 4)](https://youtu.be/AT6ZTAb9jfU)
+* [Video presentación final](https://youtu.be/R9vg3JIlj3g)
+## Tecnología correspondiente al Frontend
 
-Una vez creado el archivo, deben ir a la terminal (deben estar dentro de la carpeta API_PRODUCTOS) y levantar el contenedor
-```
-docker-compose up --build -d
-```
-Una vez levantado deberían poder ver en docker sus contenedores corriendo, pueden probar el siguiente end-point en postman para verificarlo.
-```
-GET: localhost:8080/createTable
-```
-![Ejemplo](img/postman_ejemplo.png)
+La tecnología seleccionada para el frontend, usaremos HTML, CSS y un framework de CSS llamado "TailWind Css", durante el desarrollo de la capa de presentación, se nos vio en la necesidad para la comodidad de la creación del Frontend, el uso de JavaScript.
 
-**Deben replicar este proceso para la API_{DEFINIR}.**
+## Comentarios extra
 
-### Enjoy!
+A lo largo de esta documentacion estaremos actualizando todo lo relacionado al proyecto de analisis y diseño de software, para asi ir reflejando directamente el avance que vamos teniendo a lo largo del semestre.
+
+## Pasos para levantar el proyecto
+
+En el brach master, se encuentra la carpeta del proyecto a descargar, Además de los pasos indicados en el brach de "proyecto base", cuando estén levantadas las API, hay que darle click donde salen los puertos y se van a redigir a las vistas de lo realizado en el proyecto. Luego de inicializar las bases de datos, las cuales son BD09_PRODUCTOS y BD09_CLIENTES. Se deberan crear las tablas con los siguientes request del Postman. Estas se encuentran señalizadas como crear tablas nombre de lo que queremos. Con las tablas ya creadas se puede hacer correctamente el uso de lo implementado en las vistas. [Link Postman](https://app.getpostman.com/join-team?invite_code=7a1375372352fc3d9066e35cca7a7463&target_code=4038fa8e38674c89a573811d234b26d1)
 
