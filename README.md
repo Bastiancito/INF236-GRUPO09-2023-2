@@ -25,3 +25,8 @@ La tecnología seleccionada para el frontend, usaremos HTML, CSS y un framework 
 ## Comentarios extra
 
 A lo largo de esta documentacion estaremos actualizando todo lo relacionado al proyecto de analisis y diseño de software, para asi ir reflejando directamente el avance que vamos teniendo a lo largo del semestre.
+
+## Pasos para levantar el proyecto
+
+Además de los pasos indicados en el brach de "proyecto base", cuando estén levantadas las API, hay que darle click donde salen los puertos y se van a redigir a las vistas de lo realizado en el proyecto.
+
