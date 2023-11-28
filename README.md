@@ -28,5 +28,5 @@ A lo largo de esta documentacion estaremos actualizando todo lo relacionado al p
 
 ## Pasos para levantar el proyecto
 
-Además de los pasos indicados en el brach de "proyecto base", cuando estén levantadas las API, hay que darle click donde salen los puertos y se van a redigir a las vistas de lo realizado en el proyecto.
+En el brach master, se encuentre la carpeta del proyecto a descargar, Además de los pasos indicados en el brach de "proyecto base", cuando estén levantadas las API, hay que darle click donde salen los puertos y se van a redigir a las vistas de lo realizado en el proyecto.
 
