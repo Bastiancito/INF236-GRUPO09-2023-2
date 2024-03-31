@@ -1,12 +1,11 @@
-# Grupo 09
+# Grupo 10
 
-Este es el repositorio del grupo 09, cuyos integrantes son:
+Este es el repositorio del grupo 10, cuyos integrantes son:
 
 * Bastian Camus - 202173013-3
 * Matias Fernandez - 202173108-3
 * Joaquin Navarro - 202173125-3
-* Benjamin Vilches - 202173101-6
-* Tutor/a: Antonia Valenzuela
+* Tutor/a: Francisca Henriquez
 
 ## Wiki
 
