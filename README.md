@@ -9,7 +9,7 @@ Este es el repositorio del grupo 10, cuyos integrantes son:
 
 ## Wiki
 
-> Puede acceder a la Wiki mediante el siguiente [link](https://gitlab.com/inf236-grupo09-2023-2/INF236-GRUPO09-2023-2/-/wikis/home)!
+> Puede acceder a la Wiki mediante el siguiente [link](https://github.com/Bastiancito/INF236-GRUPO09-2023-2/wiki)!
 
 ## Videos
 
