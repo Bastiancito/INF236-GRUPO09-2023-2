@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Enlace al archivo de Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+    <style>
+        :root {
+            --color1: #D4C2AD;
+            --color2: #D7A184;
+            --color3: #EFDFCC;
+            --color4: #BA8E7A;
+            --color5: #66796B;
+        }
+        body {
+            background-color: var(--color3);
+        }
+        .container {
+            background-color: var(--color1);
+            color: var(--color4);
+        }
+        form {
+            background-color: var(--color3);
+            border: 1px solid var(--color3);
+            color: var(--color4);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        input[type="text"], textarea {
+            background-color: var(--color3);
+            color: var(--color4);
+            border: 1px solid var(--color1);
+            padding: 0.5rem;
+            border-radius: 4px;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        input[type="text"]:focus, textarea:focus {
+            border-color: var(--color2);
+        }
+        button {
+            background-color: var(--color3);
+            color: #FFF0D6;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: var(--color2);
+        }
+    </style>
+</head>
+
+<body class="h-screen overflow-hidden flex items-center justify-center">
+    <div class="min-h-screen p-6 flex items-center justify-center">
+        <div class="container max-w-screen-lg mx-auto">
+            <h2 class="font-semibold text-xl text-gray-600">Datos de la Pyme</h2>
+            <form id="pymeForm" class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+                <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+                    <div class="text-gray-600">
+                        <p class="font-medium text-lg">Información básica de la Pyme:</p>
+                        <label for="nombre_pyme">Nombre de la Pyme</label>
+                        <input type="text" id="nombre_pyme" name="nombre_pyme" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="Nombre de la Pyme">
+                        <label for="direccion_pyme">Dirección física de la Pyme</label>
+                        <input type="text" id="direccion_pyme" name="direccion_pyme" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="Dirección física de la Pyme">
+                        <label for="direccion_contacto">Información de contacto</label>
+                        <input type="text" id="direccion_contacto" name="direccion_contacto" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="Teléfono, correo electrónico">
+                    </div>
+                    <div class="lg:col-span-2">
+                        <div class="text-gray-600">
+                            <p class="font-medium text-lg">Información del propietario o representante legal:</p>
+                            <label for="nombre_propietario">Nombre del propietario o representante legal</label>
+                            <input type="text" id="nombre_propietario" name="nombre_propietario" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="Nombre completo">
+                            <label for="doc_identidad">Documento de identidad</label>
+                            <input type="text" id="doc_identidad" name="doc_identidad" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="Carnet, pasaporte u otro documento oficial">
+                        </div>
+                        <div class="text-gray-600">
+                            <p class="font-medium text-lg">Descripción de la actividad:</p>
+                            <textarea id="descripcion_pyme" name="descripcion_pyme" class="border mt-1 rounded px-4 w-full bg-gray-50 resize-y" rows="5" placeholder="Breve descripción de la actividad principal de la Pyme"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('pymeForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const jsonData = {};
+
+            // Convertir los datos del formulario a JSON
+            formData.forEach((value, key) => {
+                jsonData[key] = value;
+            });
+
+            if (Object.values(jsonData).every(x => x.trim() !== '')) {
+                try {
+                    // Realizar la solicitud POST
+                    const response = await fetch('/createPyme', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(jsonData)
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Éxito',
+                            text: 'Su pyme se ha registrado correctamente.',
+                        });
+                    } else {
+                        throw new Error('Failed to fetch');
+                    }
+                } catch (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Error al crear pyme. ' + error.message,
+                    });
+                }
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Por favor, complete todos los campos.',
+                });
+            }
+        });
+    </script>
+</body>
+</html>
