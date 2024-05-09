@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const path = require('path');
 const app = express();
 require('dotenv').config();
+const PORT = 3000;                  //COMENTAR PARA CORRER BACK-END EN DOCKER
 
 // Middleware para logs y manejo de JSON
 app.use(morgan('dev'));
@@ -53,7 +54,7 @@ app.use(routes);
 
 
 // Iniciar el servidor
-const PORT = process.env.PORT_API || 8080;
+//const PORT = process.env.PORT_API || 8080;         ##DESCOMENTAR PARA CORRER BACK-END EN DOCKER
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
