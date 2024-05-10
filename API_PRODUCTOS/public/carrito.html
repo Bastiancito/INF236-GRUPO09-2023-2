@@ -248,9 +248,6 @@
                 <!-- Search input -->
                 <input id="search-input" class="block mx-auto w-full max-w-md px-4 py-2 text-gray-800 border rounded-md border-gray-300 focus:outline-none" type="text" placeholder="Busca Pyme" autocomplete="off">
                 <!-- Dropdown content goes here -->
-                <a href="#" class="block text-center px-10 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Veysa Manualidades
-                    <span class="block text-sm text-gray-500">Manualidades, decoraciones, etc.</span>
-                </a>
                 
               </div>
             </div>
@@ -261,7 +258,21 @@
               const dropdownMenu = document.getElementById('dropdown-menu');
               const searchInput = document.getElementById('search-input');
               let isOpen = false; // Set to true to open the dropdown by default
-              
+              document.addEventListener('DOMContentLoaded', function() {
+                fetch('http://localhost:8082/getPymes')
+                .then(response => response.json())
+                .then(pymes => {
+                    const dropdownMenu = document.getElementById('dropdown-menu');
+                    pymes.forEach(pyme => {
+                        const pymeElement = document.createElement('a');
+                        pymeElement.classList.add('block', 'text-center', 'px-10', 'py-2', 'text-gray-700', 'hover:bg-gray-100', 'active:bg-blue-100', 'cursor-pointer', 'rounded-md');
+                        pymeElement.href = "#"; // Puedes modificar esto si cada pyme debe enlazar a algún lugar específico
+                        pymeElement.innerHTML = `${pyme.nombre_pyme} <span class="block text-sm text-gray-500">${pyme.etiquetas_pyme}</span>`;
+                        dropdownMenu.appendChild(pymeElement);
+        });
+    })
+    .catch(error => console.error('Error al cargar las pymes:', error));
+});
               // Function to toggle the dropdown state
               function toggleDropdown() {
                 isOpen = !isOpen;

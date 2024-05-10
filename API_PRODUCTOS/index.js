@@ -2,14 +2,17 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const app = express();
+const cors = require('cors');
 require('dotenv').config();
-const PORT = 3000;                  //COMENTAR PARA CORRER BACK-END EN DOCKER
+
+//const PORT = 3000;                  //COMENTAR PARA CORRER BACK-END EN DOCKER
 
 // Middleware para logs y manejo de JSON
 app.use(morgan('dev'));
+app.use(cors());
 app.use(express.urlencoded({ extended: true })); 
 app.use(express.json());
-
+//eo
 const database = require('./src/db'); 
 
 database.connect((err) => {
@@ -54,7 +57,7 @@ app.use(routes);
 
 
 // Iniciar el servidor
-//const PORT = process.env.PORT_API || 8080;         ##DESCOMENTAR PARA CORRER BACK-END EN DOCKER
+const PORT = process.env.PORT_API || 8080;         //DESCOMENTAR PARA CORRER BACK-END EN DOCKER
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
