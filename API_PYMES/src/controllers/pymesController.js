@@ -25,8 +25,8 @@ const getPymes = (req, res) => {
   };
 
   const createPyme = (req, res) => {
-    const { nombre_pyme, nombre_propietario, doc_identidad, direccion_pyme, direccion_contacto, descripcion_pyme } = req.body;
-    const query = 'INSERT INTO pymes (nombre_pyme, nombre_propietario, doc_identidad, direccion_pyme,etiquetas_pyme, direccion_contacto, descripcion_pyme) VALUES (?, ?, ?, ?, ?, ?)';
+    const { nombre_pyme, nombre_propietario, doc_identidad, direccion_pyme,etiquetas_pyme, direccion_contacto, descripcion_pyme } = req.body;
+    const query = 'INSERT INTO pymes (nombre_pyme, nombre_propietario, doc_identidad, direccion_pyme,etiquetas_pyme, direccion_contacto, descripcion_pyme) VALUES (?, ?, ?, ?, ?, ?,?)';
   
     database.query(query, [nombre_pyme, nombre_propietario, doc_identidad, direccion_pyme,etiquetas_pyme ,direccion_contacto, descripcion_pyme], (err, results) => {
       if (err) {
