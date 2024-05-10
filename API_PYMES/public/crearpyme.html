@@ -71,6 +71,8 @@
                         <input type="text" id="direccion_pyme" name="direccion_pyme" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="Dirección física de la Pyme">
                         <label for="direccion_contacto">Información de contacto</label>
                         <input type="text" id="direccion_contacto" name="direccion_contacto" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="Teléfono, correo electrónico">
+                        <label for="etiquetas_pyme">Etiquetas de la pyme</label>
+                        <input type="text" id="etiquetas_pyme" name="etiquetas_pyme" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="Peluches, Muñecos...">
                     </div>
                     <div class="lg:col-span-2">
                         <div class="text-gray-600">
@@ -93,7 +95,6 @@
         </div>
     </div>
 
-    <!-- SweetAlert JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.getElementById('pymeForm').addEventListener('submit', async function(event) {
