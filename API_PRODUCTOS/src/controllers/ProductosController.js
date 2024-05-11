@@ -95,6 +95,19 @@ const deleteProduct = (req, res) => {
   });
 };
 
+const deleteAllProducts = (req, res) => {
+  const query = 'DELETE FROM productos';
+
+  database.query(query, (err) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error al eliminar todos los productos');
+    } else {
+      res.send('Todos los productos han sido eliminados');
+    }
+  });
+};
+
 module.exports = {
   createTableProductos,
   createProduct,
@@ -102,4 +115,5 @@ module.exports = {
   getProductosById,
   updateProducto,
   deleteProduct,
+  deleteAllProducts, 
 };

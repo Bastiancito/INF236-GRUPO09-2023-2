@@ -30,5 +30,6 @@ router.get('/mensaje/:id', mensajesController.getMensajeById);
 router.post('/mensaje', mensajesController.createMensaje);
 router.put('/mensaje/:id', mensajesController.updateMensaje);
 router.delete('/mensaje/:id', mensajesController.deleteMensaje);
+router.delete('/productos', productosController.deleteAllProducts);
 
 module.exports = router;
