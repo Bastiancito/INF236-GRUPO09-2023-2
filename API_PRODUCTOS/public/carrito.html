@@ -1,166 +1,146 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Configuración de la página -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VEYSA</title>
 
-    <!-- Enlace a Tailwind CSS y fuente de Google -->
+
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Estilos personalizados en línea -->
     <style>
-        /* Paleta de colores personalizada */
         :root {
-            --color1: #D4C2AD; /* Color principal */
-            --color2: #D7A184; /* Color secundario */
-            --color3: #EFDFCC; /* Color de fondo */
-            --color4: #BA8E7A; /* Otro color */
-            --color5: #66796B; /* Otro color */
-        }
+    --color1: #D4C2AD; 
+    --color2: #D7A184; 
+    --color3: #EFDFCC; 
+    --color4: #BA8E7A; 
+    --color5: #66796B; 
+}
 
-        /* Estilo general del texto en la página */
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        p,
-        a,
-        label,
-        input,
-        button {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--color4) !important;
-        }
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+label,
+input,
+button {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color4) !important;
+}
 
-        /* Fondo con degradado */
-        .gradient-background {
-            background: linear-gradient(180deg, var(--color3) 0%, var(--color3) 100%);
-        }
+.gradient-background {
+    background: linear-gradient(180deg, var(--color3) 0%, var(--color3) 100%);
+}
 
-        /* Estilo de la tarjeta (producto) */
-        .card {
-            background-color: var(--color3) !important;
-            border: 1px solid var(--color3);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
+.card {
+    background-color: var(--color3) !important;
+    border: 1px solid var(--color3);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
 
-        /* Efecto de escala al pasar el ratón por la tarjeta */
-        .card:hover {
-            transform: scale(1.05);
-        }
+.card:hover {
+    transform: scale(1.05);
+}
 
-        /* Estilo del encabezado */
-        header {
-            background-color: var(--color3);
-            padding-top: 0.5rem; /* Ajuste para reducir el espacio en el encabezado */
-            padding-bottom: 0.5rem; /* Ajuste para reducir el espacio en el encabezado */
-        }
+header {
+    background-color: var(--color3);
+    padding-top: 0.5rem; 
+    padding-bottom: 0.5rem; 
+}
 
-        /* Tamaño del texto del logo */
-        .logo-text {
-            font-size: 1.5rem;
-        }
+.logo-text {
+    font-size: 1.5rem;
+}
 
-        /* Estilo del formulario de inicio de sesión */
-        form.login-form {
-            background-color: var(--color3);
-            border: 1px solid var(--color3);
-            padding: 1rem;
-            border-radius: 8px;
-        }
+form.login-form {
+    background-color: var(--color3);
+    border: 1px solid var(--color3);
+    padding: 1rem;
+    border-radius: 8px;
+}
 
-        /* Estilo del botón */
-        button {
-            background-color: var(--color3);
-            color: #FFF0D6;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+button {
+    background-color: var(--color3);
+    color: #FFF0D6;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-        /* Cambio de color al pasar el ratón por el botón */
-        button:hover {
-            background-color: var(--color2);
-        }
+button:hover {
+    background-color: var(--color2);
+}
 
-        /* Estilos adicionales para el efecto de escala */
-        .text-sm a {
-            transition: transform 0.3s ease-in-out; /* Transición suave de escala */
-        }
+.text-sm a {
+    transition: transform 0.3s ease-in-out; 
+}
 
-        .text-sm a:hover {
-            transform: scale(1.03); /* Efecto de escala al pasar el ratón por encima */
-        }
+.text-sm a:hover {
+    transform: scale(1.03); 
+}
 
-        /* Estilo para el resumen del carrito */
-        #resumen-carrito {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: var(--color3);
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            border-top: 1px solid var(--color4);
-        }
+#resumen-carrito {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color3);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--color4);
+}
 
-        /* Estilo para el botón del resumen del carrito */
-        #ver-carrito {
-            background-color: var(--color2);
-            color: #FFF0D6;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+#ver-carrito {
+    background-color: var(--color2);
+    color: #FFF0D6;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-        /* Cambio de color al pasar el ratón por el botón del resumen del carrito */
-        #ver-carrito:hover {
-            background-color: var(--color1);
-        }
+#ver-carrito:hover {
+    background-color: var(--color1);
+}
 
-        /* Estilo para el botón de búsqueda */
-        #buscar-btn {
-            background-color: var(--color3);
-            color: #FFF0D6;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+#buscar-btn {
+    background-color: var(--color3);
+    color: #FFF0D6;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-        /* Cambio de color al pasar el ratón por el botón de búsqueda */
-        #buscar-btn:hover {
-            background-color: var(--color2);
-        }
+#buscar-btn:hover {
+    background-color: var(--color2);
+}
     </style>
 </head>
 
 <body class="bg-gray-100">
 
-    <!-- Encabezado -->
     <header class="gradient-background">
-        <!-- Contenedor del encabezado -->
         <div class="container mx-auto px-6 py-2 flex items-center justify-between">
 
-            <!-- Sección del logo -->
             <div class="flex items-center space-x-1">
                 <img src="logo.png" alt="Logo VEYSA" class="h-28 mr-1">
                 <a href="/" class="text-white font-bold text-xs logo-text">VEYSA MANUALIDADES</a>
             </div>
 
-            <!-- Enlaces de navegación -->
             <div class="text-center space-x-4 text-sm">
                 <a href="/acercade" class="text-white font-bold">ACERCA</a>
                 <a href="/carrito" class="text-white font-bold">TIENDA</a>
@@ -177,35 +157,6 @@
             <div id="products-container"></div>
     
             <script>
-                fetch('/productos')
-                .then(response => response.json())
-                .then(products => {
-                    console.log(products);
-                    mostrarProductos(products);
-                })
-                .catch(error => console.error('Error:', error));
-
-                function mostrarProductos(productos) {
-                    const productsContainer = document.getElementById('products-container');
-                    productsContainer.innerHTML = '';
-
-                   
-                    productos.forEach(product => {
-                        const productElement = document.createElement('div');
-                        productElement.classList.add('card', 'border', 'border-gray-300', 'rounded', 'overflow-hidden', 'shadow-lg', 'm-4', 'w-64');
-
-                      
-                        productElement.innerHTML = `
-                            <h3 class="text-lg font-bold mb-2">${product.nombre_producto}</h3>
-                            <p class="text-gray-600">${product.descripcion}</p>
-                            <p class="text-lg font-bold text-blue-500">$${product.precio.toFixed(2)}</p>
-                            <p class="text-gray-500">Etiquetas: ${product.etiqueta}</p>
-                            <button onclick="agregarAlCarrito('${product.nombre_producto}', ${product.precio})">Agregar al carrito</button>
-                            <button class="eliminar-producto" onclick="eliminarDelCarrito('${product.nombre_producto}', ${product.precio})">Eliminar</button>
-                        `;
-                        productsContainer.appendChild(productElement);
-                    });
-                }
             let totalCarrito = 0;
             
             let productosEnCarrito = [];
@@ -245,62 +196,75 @@
                 </svg>
               </button>
               <div id="dropdown-menu" class="hidden absolute right-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-1 space-y-1">
-                <!-- Search input -->
                 <input id="search-input" class="block mx-auto w-full max-w-md px-4 py-2 text-gray-800 border rounded-md border-gray-300 focus:outline-none" type="text" placeholder="Busca Pyme" autocomplete="off">
-                <!-- Dropdown content goes here -->
                 
               </div>
             </div>
           </div>
           <script>
-          // JavaScript to toggle the dropdown
-              const dropdownButton = document.getElementById('dropdown-button');
-              const dropdownMenu = document.getElementById('dropdown-menu');
-              const searchInput = document.getElementById('search-input');
-              let isOpen = false; // Set to true to open the dropdown by default
-              document.addEventListener('DOMContentLoaded', function() {
-                fetch('http://localhost:8082/getPymes')
+            // JavaScript to toggle the dropdown
+            const dropdownButton = document.getElementById('dropdown-button');
+            const dropdownMenu = document.getElementById('dropdown-menu');
+            const searchInput = document.getElementById('search-input');
+            let isOpen = false; 
+        
+            document.addEventListener('DOMContentLoaded', function() {
+                fetch('http://localhost:8080/getPymes')
                 .then(response => response.json())
                 .then(pymes => {
-                    const dropdownMenu = document.getElementById('dropdown-menu');
                     pymes.forEach(pyme => {
                         const pymeElement = document.createElement('a');
                         pymeElement.classList.add('block', 'text-center', 'px-10', 'py-2', 'text-gray-700', 'hover:bg-gray-100', 'active:bg-blue-100', 'cursor-pointer', 'rounded-md');
-                        pymeElement.href = "#"; // Puedes modificar esto si cada pyme debe enlazar a algún lugar específico
-                        pymeElement.innerHTML = `${pyme.nombre_pyme} <span class="block text-sm text-gray-500">${pyme.etiquetas_pyme}</span>`;
+                        pymeElement.textContent = pyme.nombre_pyme;
+                        pymeElement.dataset.id = pyme.id_pyme; 
+                        pymeElement.addEventListener('click', function() {
+                            fetchProductosPorPyme(this.dataset.id); 
+                        });
                         dropdownMenu.appendChild(pymeElement);
-        });
-    })
-    .catch(error => console.error('Error al cargar las pymes:', error));
-});
-              // Function to toggle the dropdown state
-              function toggleDropdown() {
+                    });
+                })
+                .catch(error => console.error('Error al cargar las pymes:', error));
+        
+                function fetchProductosPorPyme(idPyme) {
+                    if (!idPyme) return; 
+                    fetch(`http://localhost:8080/productos/pyme/${idPyme}`)
+                    .then(response => response.json())
+                    .then(productos => {
+                        const productsContainer = document.getElementById('products-container');
+                        productsContainer.innerHTML = '';
+                        productos.forEach(product => {
+                            const productCard = document.createElement('div');
+                            productCard.classList.add('card', 'p-4', 'm-4', 'rounded', 'shadow');
+                            productCard.innerHTML = `<h3 class="font-bold">${product.nombre_producto}</h3>
+                                                      <p>${product.descripcion}</p>
+                                                      <p class="text-blue-500">${product.precio}</p>`;
+                            productsContainer.appendChild(productCard);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error loading products for pyme:', error);
+                    });
+                }
+            });
+        
+            // Toggle Dropdown
+            function toggleDropdown() {
                 isOpen = !isOpen;
                 dropdownMenu.classList.toggle('hidden', !isOpen);
-              }
-              
-              // Set initial state
-              toggleDropdown();
-              
-              dropdownButton.addEventListener('click', () => {
-                toggleDropdown();
-              });
-              
-              // Add event listener to filter items based on input
-              searchInput.addEventListener('input', () => {
+            }
+        
+            dropdownButton.addEventListener('click', toggleDropdown);
+        
+            // Search functionality
+            searchInput.addEventListener('input', () => {
                 const searchTerm = searchInput.value.toLowerCase();
                 const items = dropdownMenu.querySelectorAll('a');
-              
                 items.forEach((item) => {
-                  const text = item.textContent.toLowerCase();
-                  if (text.includes(searchTerm)) {
-                    item.style.display = 'block';
-                  } else {
-                    item.style.display = 'none';
-                  }
+                    const text = item.textContent.toLowerCase();
+                    item.style.display = text.includes(searchTerm) ? 'block' : 'none';
                 });
-              });
-          </script>
+            });
+        </script>
 
 
 

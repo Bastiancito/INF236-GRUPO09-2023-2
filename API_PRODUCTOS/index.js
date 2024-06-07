@@ -15,6 +15,10 @@ app.use(express.json());
 //eo
 const database = require('./src/db'); 
 
+const routes = require('./src/routes/index');
+app.use(routes);
+
+
 database.connect((err) => {
     if (err) {
         console.error('Error al conectar a la base de datos:', err);
@@ -25,6 +29,11 @@ database.connect((err) => {
 
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/crearpyme', (req, res) => {
+    console.log('Accediendo a la ruta raíz');
+    res.sendFile(path.join(__dirname, 'public', 'crearpyme.html'));
+});
 
 app.get('/', (req, res) => {
     console.log('Accediendo a la ruta raíz');
@@ -52,8 +61,6 @@ app.get('/insumosp', (req, res) => {
 });
 
 
-const routes = require('./src/routes/index');
-app.use(routes);
 
 
 // Iniciar el servidor
