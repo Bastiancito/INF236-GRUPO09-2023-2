@@ -17,6 +17,7 @@ Este es el repositorio del grupo 10, cuyos integrantes son:
 * [Video presentación avance 1](https://youtu.be/_pTW-VZjeHk)
 * [Video presentación avance 2 (Correspondiente al Hito 4)](https://youtu.be/AT6ZTAb9jfU)
 * [Video presentación final](https://youtu.be/R9vg3JIlj3g)
+* [Video Hito 4 2024-1(https://youtu.be/LYbhXLCfWV8)
 ## Tecnología correspondiente al Frontend
 
 La tecnología seleccionada para el frontend, usaremos HTML, CSS y un framework de CSS llamado "TailWind Css", durante el desarrollo de la capa de presentación, se nos vio en la necesidad para la comodidad de la creación del Frontend, el uso de JavaScript.
