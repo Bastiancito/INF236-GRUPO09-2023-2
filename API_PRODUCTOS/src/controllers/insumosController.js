@@ -48,7 +48,8 @@ const getInsumoById = (req, res) => {
     if (err) {
       console.error(err);
       return res.status(500).send('Error al obtener el insumo por ID');
-    }if (result.length === 0) {
+    }
+    if (result.length === 0) {
         
         return res.status(404).send('Insumo no encontrado');
       } 
@@ -68,7 +69,8 @@ const updateInsumo = (req, res) => {
     if (err) {
       console.error(err);
       return res.status(500).send('Error al actualizar el Insumo');
-    }if (result.affectedRows === 0) {
+    }
+    if (result.affectedRows === 0) {
       return res.status(404).send('Insumo no encontrado');
       } 
     return res.send('Insumo actualizado');
