@@ -47,17 +47,16 @@ const getInsumoById = (req, res) => {
   database.query(query, [insumoId], (err, result) => {
     if (err) {
       console.error(err);
-      res.status(500).send('Error al obtener el insumo por ID');
-    } else {
-      if (result.length === 0) {
+      return res.status(500).send('Error al obtener el insumo por ID');
+    }if (result.length === 0) {
         
-        res.status(404).send('Insumo no encontrado');
-      } else {
-        res.json(result[0]);
-      }
-    }
-  });
-};
+        return res.status(404).send('Insumo no encontrado');
+      } 
+    return res.json(result[0]);
+      
+    })
+  };
+
 
 const updateInsumo = (req, res) => {
   const insumoId = req.params.id; 
@@ -68,16 +67,13 @@ const updateInsumo = (req, res) => {
   database.query(query, [nombre_insumo, stock, precio, insumoId], (err, result) => {
     if (err) {
       console.error(err);
-      res.status(500).send('Error al actualizar el Insumo');
-    } else {
-      if (result.affectedRows === 0) {
-        res.status(404).send('Insumo no encontrado');
-      } else {
-        res.send('Insumo actualizado');
-      }
-    }
-  });
-};
+      return res.status(500).send('Error al actualizar el Insumo');
+    }if (result.affectedRows === 0) {
+      return res.status(404).send('Insumo no encontrado');
+      } 
+    return res.send('Insumo actualizado');
+    })
+  };
 
 const deleteInsumo = (req, res) => {
   const id = req.params.id;

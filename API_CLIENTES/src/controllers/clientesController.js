@@ -45,16 +45,16 @@ const getClienteById = (req, res) => {
   database.query(query, [clienteId], (err, result) => {
     if (err) {
       console.error(err);
-      res.status(500).send('Error al obtener el cliente por ID');
-    } else {
-      if (result.length === 0) {
-        res.status(404).send('Cliente no encontrado');
-      } else {
-        res.json(result[0]);
-      }
-    }
-  });
-};
+      return res.status(500).send('Error al obtener el cliente por ID');
+    } 
+    if (result.length === 0) {
+      return res.status(404).send('Cliente no encontrado');
+    } 
+    res.json(result[0]);  
+    })};
+
+
+
 
 const updateCliente = (req, res) => {
   const clienteId = req.params.id;
@@ -65,16 +65,13 @@ const updateCliente = (req, res) => {
   database.query(query, [nombre_cliente, email, password, clienteId], (err, result) => {
     if (err) {
       console.error(err);
-      res.status(500).send('Error al actualizar el cliente');
-    } else {
-      if (result.affectedRows === 0) {
-        res.status(404).send('Cliente no encontrado');
-      } else {
-        res.send('Cliente actualizado');
-      }
+      return res.status(500).send('Error al actualizar el cliente');
     }
-  });
-};
+    if (result.affectedRows === 0) {
+        return res.status(404).send('Cliente no encontrado');
+      }   
+    return res.send('Cliente actualizado');
+  })};
 
 const deleteCliente = (req, res) => {
   const id = req.params.id;

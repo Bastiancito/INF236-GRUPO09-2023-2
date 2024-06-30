@@ -5,9 +5,7 @@ const app = express();
 const cors = require('cors');
 require('dotenv').config();
 
-//const PORT = 3000;                  //COMENTAR PARA CORRER BACK-END EN DOCKER
 
-// Middleware para logs y manejo de JSON
 app.use(morgan('dev'));
 app.use(cors());
 app.use(express.urlencoded({ extended: true })); 

@@ -18,12 +18,12 @@ const createProduct = (req, res) => {
   database.query(query, [nombre_producto, stock, precio, descripcion, etiqueta], (err) => {
     if (err) {
       console.error(err);
-      res.status(500).send('Error al crear el producto');
-    } else {
-      res.send('Producto creado');
+      return res.status(500).send('Error al crear el producto');
     }
-  });
-};
+
+    return res.send('Producto creado');
+    }
+  )};
 
 const getProductos = (req, res) => {
   const query = 'SELECT * FROM productos';
@@ -46,18 +46,15 @@ const getProductosById = (req, res) => {
   database.query(query, [productId], (err, result) => {
     if (err) {
       console.error(err);
-      res.status(500).send('Error al obtener el producto por ID');
-    } else {
-      if (result.length === 0) {
+      return res.status(500).send('Error al obtener el producto por ID');
+    } 
+    if (result.length === 0) {
+        return res.status(404).send('Producto no encontrado');
+      } 
         
-        res.status(404).send('Producto no encontrado');
-      } else {
-        
-        res.json(result[0]);
-      }
-    }
-  });
-};
+    res.json(result[0]);
+      })};
+    
 
 const updateProducto = (req, res) => {
   const productId = req.params.id; 
@@ -67,18 +64,15 @@ const updateProducto = (req, res) => {
   database.query(query, [nombre_producto, stock, precio, descripcion, etiqueta, productId], (err, result) => {
     if (err) {
       console.error(err);
-      res.status(500).send('Error al actualizar el producto');
-    } else {
-      if (result.affectedRows === 0) {
-      
-        res.status(404).send('Producto no encontrado');
-      } else {
-      
-        res.send('Producto actualizado');
-      }
+      return res.status(500).send('Error al actualizar el producto');
     }
-  });
-};
+    if (result.affectedRows === 0) {
+      return res.status(404).send('Producto no encontrado');
+    }
+      
+    return res.send('Producto actualizado');
+      
+    })};
 
 
 const deleteProduct = (req, res) => {

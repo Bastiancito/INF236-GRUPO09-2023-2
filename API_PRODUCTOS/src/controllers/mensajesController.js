@@ -45,16 +45,15 @@ const createTableMensajes = (req, res) => {
     database.query(query, [mensajeId], (err, result) => {
       if (err) {
         console.error(err);
-        res.status(500).send('Error al obtener el mensaje por ID');
-      } else {
-        if (result.length === 0) {
-          res.status(404).send('Mensaje no encontrado');
-        } else {
-          res.json(result[0]);
-        }
+        return res.status(500).send('Error al obtener el mensaje por ID');
       }
-    });
-  };
+      if (result.length === 0) {
+        return res.status(404).send('Mensaje no encontrado');
+        }
+        return res.json(result[0]);
+        })
+      };
+    
   
   const updateMensaje = (req, res) => {
     const mensajeId = req.params.id;
@@ -65,16 +64,16 @@ const createTableMensajes = (req, res) => {
     database.query(query, [nombre, email, mensaje, mensajeId], (err, result) => {
       if (err) {
         console.error(err);
-        res.status(500).send('Error al actualizar el mensaje');
-      } else {
-        if (result.affectedRows === 0) {
-          res.status(404).send('Mensaje no encontrado');
-        } else {
-          res.send('Mensaje actualizado');
-        }
+        return res.status(500).send('Error al actualizar el mensaje');
       }
-    });
-  };
+      if (result.affectedRows === 0) {
+        return res.status(404).send('Mensaje no encontrado');
+        }
+      return res.send('Mensaje actualizado');
+        
+      }
+    )};
+  
   
   const deleteMensaje = (req, res) => {
     const id = req.params.id;
