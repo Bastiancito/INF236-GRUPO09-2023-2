@@ -1,1 +1,1 @@
-Para empezar, tuvimos un par de problemas con los tests, 
+Para empezar, tuvimos un par de problemas con los tests, tuvimos que usar "ngrok" para poder crear un tunel seguro con las api productos y clientes para poder testearlas en la página testable.io. Si bien iba todo correcto, pero al intentar apuntar a un endpoint de la Api, por ejemplo el createProduct, nos daba un error 500 (Internal Server Error), lo intentamos solucionar y no lo logramos. Aún así pudimos testear el ingreso de 50 clientes en la Api Productos y Clientes, dandonos buenos resultados.
